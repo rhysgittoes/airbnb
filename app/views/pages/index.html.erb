@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col">
+		</div>
+
+		<div class="col">
+		</div>
+
+		<div class="col">
+			<h1 class="title">Welcome to Airbnb</h1>
+
+				<h2 class="signed_in_title">
+				 <% if signed_in? -%>
+				    <%= @user.name %>
+				     <% else -%>
+				    Sign up or Sign in
+				     <% end -%> 				
+				</h2>
+		</div>
+
+	</div>
+</div>
+
+<!-- 	<form>
+	<% if signed_in? -%>
+	<input type="button" value="Sign-out" onclick="window.location.href=''"/>
+	<% else -%>
+	<input type="button" value="Register" onclick="window.location.href='http://localhost:3000/sign_up'"/>
+	<% end -%>
+</form>  -->
+
+
+<!-- 	<div class="page-header">
+		</div> -->

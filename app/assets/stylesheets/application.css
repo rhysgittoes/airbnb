@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+h1.title {
+ }
+
+li.nav-sessioncontrol {
+	}
+
+h2.signed_in_title {
+}
+
+a.btn-info {
+	margin-right: 10px;
+}
