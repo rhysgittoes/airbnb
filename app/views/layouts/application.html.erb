@@ -37,7 +37,8 @@
 			     <% end -%> 	
 			     
      </li>   
-  </ul>  
+  </ul> 
+
 
   <ul class="navbar-nav navbar-right">
      <li class="nav-sessioncontrol">  
@@ -46,6 +47,18 @@
            <!-- Display nothing -->
            <% else -%>
            <a href="http://localhost:3000/sign_up" class="btn btn-info">Sign up</a>
+           <% end -%>   
+         
+     </li>   
+  </ul>
+
+    <ul class="navbar-nav navbar-right">
+     <li class="nav-sessioncontrol">  
+
+           <% if signed_in? -%>
+           <!-- Display nothing -->
+           <% else -%>
+           <a href="http://localhost:3000/auth/facebook" class="btn btn-info">Facebook Sign in</a>
            <% end -%>   
          
      </li>   
