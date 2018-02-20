@@ -1,25 +1,18 @@
 <br>
-
 <div class="container">
 	<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-3">
 				<h2>Editing Page</h2>
 				</div>
-	</div>
-
-
-			<div class="col-md-12">
+   
+			<div class="col-md-9">
 				<div class="listing-container">
-					<h4><%= @listing.name %></h4>
-					<br>
-					<p><%= @listing.description %></p>
-					Rooms available: <%= @listing.room_number %><br>
-					Beds available: <%= @listing.bed_number %><br>
-					Sleeps: <%= @listing.guest_number %><br>
-					<p>Price: <%= @listing.price %></p>
-
-					
+      			<%= form_for @listing do |f| %>
+               <%= render partial: '/listings/form', locals: {f: f} %>
+               <%end %>
 				</div>						
 			</div>
+
+    </div>
 	
 </div>

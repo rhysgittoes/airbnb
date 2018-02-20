@@ -21,7 +21,8 @@
 				
 					<div style="text-align:center;"">
 						<%= link_to "Edit This Listing", edit_listing_path(l) ,class: "btn btn-success" %>
-					</div>
+                  <%= link_to "Delete This Listing", listing_path(l) , :method => :delete, class: "btn btn-danger" %>
+               </div>
 				</div>						
 			</div>
 		<% end %> 

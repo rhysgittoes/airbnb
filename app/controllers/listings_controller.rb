@@ -12,22 +12,17 @@ class ListingsController < ApplicationController
  	end 
 
 
-
 	def create 
-	 @listing = Listing.new(listings_params)
-	 # @listing.propert_type = params[:property_type]
-	 @listing.users_id = current_user.id
-	 @user = current_user
-	 redirect_to listings_path
-	 if @listing.save	
-	 	redirect_to listings_path
-	 else
-	 	redirect_back
-	 end
+		@listing = Listing.new(listings_params)
+		# @listing.propert_type = params[:property_type]
+		@listing.users_id = current_user.id
+		@user = current_user
+		if @listing.save	
+		redirect_to listings_path
+		else
+		redirect_back
+		end
 	end 
-
-
-
 
 
 	def show
@@ -36,13 +31,21 @@ class ListingsController < ApplicationController
 
 	def edit
 		@user = current_user
-
 		@listing = Listing.find(params[:id])
 	end
 
+
 	def update
+		@listing = Listing.find(params[:id])
+		@listing.update(listings_params)
+		redirect_to listings_path
 	end
 
+	def destroy
+		@listing = Listing.find(params[:id])
+		@listing.destroy 
+		redirect_to listings_path
+	end
 
 	private 
 	def listings_params
