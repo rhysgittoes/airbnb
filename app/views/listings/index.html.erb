@@ -3,15 +3,11 @@
 	<div class="row">
 		<div class="col">
 			<h2 class="signed_in_title">
-			Welcome to the listings
+			New Listings for you
 			<%= @user.name %>				   
 			</h2>
 
 		</div>
-
-
-
-
 
 		<div class="col"></div>
 		<div class="col">
@@ -21,15 +17,15 @@
 					<form action="/listings/new">
 					<button class="bluebutton"/> Create a Listing
 					</form>
-				<tr>
+				<!-- <tr>
 					<td>	
 					<form action="/listings/show">
 					 <button class="bluebutton"/> View your Listings   
 					</form>
-
+ -->
 				<tr>
 					<td>	
-					<form action="/listings">
+					<form action="/listings/edit">
 					 <button class="bluebutton"/>  Edit your Listings   
 					</form>
 			</table>
@@ -37,42 +33,56 @@
 	</div>
 </div>
 <br>
-
-
-
 <!-- List of places -->
 <div class="container">
 	<div class="row">
-		<div class="col">
-		<% @listing.each do |l| %>
-			<br>
-			<div class="listing-container">
-			<%= l.name %>
-			<br>
-			<%= l.price %>
+					<% @listing.each do |l| %>
+					<div class="col-md-4">
+						<div class="listing-container">
+							<h4><%= l.name %></h4>
+							<br>
+							<p><%= l.description %></p>
+							Rooms available: <%= l.room_number %><br>
+							Beds available: <%= l.bed_number %><br>
+							Sleeps: <%= l.guest_number %><br>
+							<p>Price: <%= l.price %></p>
+			<!-- Show/hide location script -->
+							<div class="location_container">
+								<button class="btn btn-success show-info" >Show Location</button>
+									<ul class="subforums hidden" id="location_list"><br>
+										<li><%= l.address %></li>
+										<li><%= l.zipcode %></li>
+										<li><%= l.city %></li>
+										<li><%= l.state %></li>
+										<li><%= l.country %></li>
+									</ul>
+							</div>
+						</div>
+					</div>
+					<% end %> 
+				
 
-			</div>
-			<% end %> 
-		</div>
+				<script>
+					const buttons = document.getElementsByClassName("show-info");
+					for (var i = buttons.length - 1; i >= 0; i--) {
+						buttons[i].addEventListener("click", function(e){
+							if(this.nextElementSibling.classList.contains("hidden")){
+								this.nextElementSibling.classList.remove("hidden");
+							}else{
+								this.nextElementSibling.classList.add("hidden");
+							}
+						})
+					}
+				 </script>
 
-		<div class="col">
-		<% @listing.each do |l| %>
-			<br>
-			<div class="listing-container">
-			<%= l.name %>
-			</div>
-			<% end %> 
-		</div>
-		
-		<div class="col">
-		<% @listing.each do |l| %>
-			<br>
-			<div class="listing-container">
-			<%= l.name %>
-			</div>
-			<% end %> 
-		</div>
+				<!-- <div class="col">
+				</div>
+				
+				<div class="col">
+				</div> -->
 
-		
 	</div>
 </div>
+<!-- :country, :state, :city, :zipcode, :address -->
+
+<!-- overflow-x: visible; overflow-y: visible; -->

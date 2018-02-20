@@ -17,12 +17,14 @@ class UsersController < Clearance::UsersController
 
  end 
 
+ def show
+ 	@user = current_user
+ 	@listings = Listing.where(users_id: @user.id )
+ 	render template: "users/show"
+ end 
 
 private 
-
 	def user_params
 		params.require(:user).permit(:email, :password, :name)
 	end 
-
-
 end

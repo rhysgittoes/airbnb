@@ -49,6 +49,25 @@ button.bluebutton {
 .listing-container {
 
   background-color: #f5f5ef;
-  padding:5px;
-  border-radius: 5px;
+  padding:15px;
+  border-radius: 10px;
+  margin:10px;
+
 }
+
+#location_list {
+  margin-left: -40px;
+}
+
+.hidden {
+  display:none;
+}
+
+.subforums{
+  list-style-type: none;
+  }
+
+.location_container{
+  text-align: center;
+}
+

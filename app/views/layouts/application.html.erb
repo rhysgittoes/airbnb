@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= stylesheet_link_tag "application.css" %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag 'application' %>
+
   <%= csrf_meta_tag %>
 <!-- css boostrap link -->
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -38,6 +39,18 @@
 			     
      </li>   
   </ul> 
+
+
+  <ul class="navbar-nav navbar-right">
+     <li class="nav-sessioncontrol">  
+
+           <% if signed_in? -%>
+      <a href= <%= "http://localhost:3000/users/"+@user.id.to_s%> class="btn btn-info" >Profile</a>
+           <% else -%>
+           <% end -%>   
+         
+     </li>   
+  </ul>
 
 
   <ul class="navbar-nav navbar-right">
@@ -116,3 +129,4 @@
       <div id="flash_<%= key %>"><%=h value %></div>
     <% end %>
   </div> -->
+
