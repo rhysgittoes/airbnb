@@ -9,7 +9,7 @@ class UsersController < Clearance::UsersController
  	@user = User.new(user_params)
  	if @user.save 
  		sign_in @user
- 		redirect_back_or url_after_create
+ 		redirect_back_or url_after_createw
  		cookies[:user_id] = @user.id 
  	else 
  		render template: "users/view"

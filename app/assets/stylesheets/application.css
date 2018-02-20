@@ -13,16 +13,42 @@
  *= require_tree .
  *= require_self
  */
-
-h1.title {
- }
-
-li.nav-sessioncontrol {
-	}
-
-h2.signed_in_title {
-}
-
 a.btn-info {
 	margin-right: 10px;
+}
+
+.bluebutton {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 14px 80px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #00A6FF;
+  font-size: 1.5rem;
+
+  font-weight: 100;
+  border: 1px solid #fff;
+  box-shadow: 2px 2px 5px #AFE9FF;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+}
+
+.bluebutton:hover {
+  color: #006398;
+  border: 1px solid #006398;
+  box-shadow: 2px 2px 20px #AFE9FF;
+}
+
+button.bluebutton {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.listing-container {
+
+  background-color: #f5f5ef;
+  padding:5px;
+  border-radius: 5px;
 }

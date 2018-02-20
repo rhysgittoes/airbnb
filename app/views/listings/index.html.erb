@@ -1,0 +1,78 @@
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h2 class="signed_in_title">
+			Welcome to the listings
+			<%= @user.name %>				   
+			</h2>
+
+		</div>
+
+
+
+
+
+		<div class="col"></div>
+		<div class="col">
+			<table class="listings-menu">
+				<tr>
+					<td> 
+					<form action="/listings/new">
+					<button class="bluebutton"/> Create a Listing
+					</form>
+				<tr>
+					<td>	
+					<form action="/listings/show">
+					 <button class="bluebutton"/> View your Listings   
+					</form>
+
+				<tr>
+					<td>	
+					<form action="/listings">
+					 <button class="bluebutton"/>  Edit your Listings   
+					</form>
+			</table>
+		</div>
+	</div>
+</div>
+<br>
+
+
+
+<!-- List of places -->
+<div class="container">
+	<div class="row">
+		<div class="col">
+		<% @listing.each do |l| %>
+			<br>
+			<div class="listing-container">
+			<%= l.name %>
+			<br>
+			<%= l.price %>
+
+			</div>
+			<% end %> 
+		</div>
+
+		<div class="col">
+		<% @listing.each do |l| %>
+			<br>
+			<div class="listing-container">
+			<%= l.name %>
+			</div>
+			<% end %> 
+		</div>
+		
+		<div class="col">
+		<% @listing.each do |l| %>
+			<br>
+			<div class="listing-container">
+			<%= l.name %>
+			</div>
+			<% end %> 
+		</div>
+
+		
+	</div>
+</div>

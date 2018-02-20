@@ -3,18 +3,20 @@ Rails.application.routes.draw do
   resource :session, controller: "clearance/sessions", only: [:create]
 
   resources :users, controller: "users", only: [:create, :edit] do
-    resource :password,
+  resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
+
   end
+
+  resources :listings
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-root to: 'pages#index'
-
-get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  root to: 'pages#index'
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 end
 
 

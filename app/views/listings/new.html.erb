@@ -1,0 +1,59 @@
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col">
+		<h1>Create a listing Page</h1>
+		</div>
+		<div class="col">
+		</div>
+		<div class="col">
+
+
+
+
+
+				<%= form_for @listing do |f| %>
+					<div>Listing Name</div>
+						<div><%= f.text_field :name %></div>
+
+					<div>Property Type?</div>
+						<div><%= f.select :property_type, options_for_select(["House","Apartment","Chalet","Villa","Condominium","Other"]) %></div> 
+						
+					<div>How many Rooms?</div>
+						<div><%= f.select :room_number, options_for_select(["1","2","3","4","5","6","7","8","9","10"]) %></div> 
+
+					<div>How many Beds?</div>
+						<div><%= f.select :bed_number, options_for_select(["1","2","3","4","5","6","7","8","9","10"]) %></div> 
+
+					<div>How many Guests?</div>
+						<div><%= f.select :guest_number, options_for_select(["1","2","3","4","5","6","7","8","9","10"]) %></div> 
+
+
+					<div>Description</div>
+						<div><%= f.text_field :description %></div>
+				
+			
+					<div>Price per night</div>
+						<div><%= f.text_field :price %></div>
+
+					<div><%= f.submit "Create Listing"%></div>
+
+				<%end %>
+
+
+
+		</div>
+	</div>
+</div>
+
+
+<!-- <%#= f.select :phone_type, options_for_select([["Select One", ""], "Cell", "Work", "Office", "Home", "Other"]), :class => 'genForm_dropBox' %> -->
+
+		<!-- 	<select name="property_type">
+							<option value="House">House</option>
+							<option value="Apartment">Apartment</option>
+							<option value="Chalet">Chalet</option>
+							<option value="Villa">Villa</option>
+							<option value="Condominium">Condominium</option>
+							<option value="Other">Other</option>
+							</select> -->
