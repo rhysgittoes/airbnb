@@ -1,0 +1,67 @@
+<br>
+<!-- <div class="container">
+      <div class="row">
+            <div class="col-md-6">
+            <h2>T<%= @user.name %></h2>
+            </div> 
+      </div> -->
+
+
+<div class="container">
+   <div class="row">
+      <div class="col-md-8" id="left">
+         <div class="listing-container">
+            <div id="property_type">
+               <%= @listing.property_type %>
+            </div>
+            <h2><%= @listing.name %></h2>
+              <p> <%= @listing.city %> </p>
+            <div class="row">
+               <div class="col-2">
+               Rooms: <%= @listing.room_number %>
+               </div>
+               <div class="col-2">
+               Beds: <%= @listing.bed_number %>
+               </div>
+               <div class="col-2">
+               Sleeps: <%= @listing.guest_number %>
+               </div>
+            </div>
+            <br>
+            <p><%= @listing.description %></p>
+
+            <p> <%= @listing.address %> </p> 
+            <p> <%= @listing.zipcode %> </p>
+            <p> <%= @listing.state %> </p>
+            <p> <%= @listing.country %> </p>
+           
+          <!--   <div style="text-align:center;"">
+            </div> -->
+         </div>                  
+      </div>
+
+      <div class="col-sm-4" id="right">
+         <div class="listing-container">
+            <div style="border-bottom: 0.5px solid black;margin-bottom: 20px;">
+                <span style="font-size:2em;font-weight:bold"><%= @listing.price %> RM </span>per night
+                <br>
+                Place holder stuff review
+                <br>
+                <br>
+            </div>
+
+
+            <form action="#">
+               <button class="redbutton"/>Contact Details</button>
+            </form>
+            <form action="#">
+               <button class="redbutton"/>Book Now</button>
+            </form>
+            <br>
+         
+         </div>
+     
+      </div>
+   </div>
+</div>
+

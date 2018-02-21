@@ -9,6 +9,7 @@
 
 		</div>
 
+
 		<div class="col"></div>
 		<div class="col">
 			<table class="listings-menu">
@@ -33,6 +34,8 @@
 	</div>
 </div>
 <br>
+
+
 <!-- List of places -->
 <div class="container">
 	<div class="row">
@@ -41,14 +44,22 @@
 						<div class="listing-container">
 							<h4><%= l.name %></h4>
 							<br>
+							<div id="property_type">
+               			<%= l.property_type %>
+           				</div>
+				<!--<p>ID of this is: <%= l.id %></p>-->
 							<p><%= l.description %></p>
+							
 							Rooms available: <%= l.room_number %><br>
 							Beds available: <%= l.bed_number %><br>
 							Sleeps: <%= l.guest_number %><br>
 							<p>Price: <%= l.price %></p>
+							<!-- <p>Amenities: <%= l.amenities %></p> -->
 			<!-- Show/hide location script -->
 							<div class="location_container">
+								<a href= <%= "http://localhost:3000/listings/"+l.id.to_s%> class="btn btn-success" >View Listing</a>
 								<button class="btn btn-success show-info" >Show Location</button>
+
 									<ul class="subforums hidden" id="location_list"><br>
 										<li><%= l.address %></li>
 										<li><%= l.zipcode %></li>
