@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+
  */
 a.btn-info {
 	margin-right: 10px;
@@ -46,14 +47,7 @@ button.bluebutton {
   -moz-appearance: none;
 }
 
-.listing-container {
 
-  background-color: #f5f5ef;
-  padding:15px;
-  border-radius: 10px;
-  margin:10px;
-
-}
 
 #location_list {
   margin-left: -40px;
@@ -61,11 +55,14 @@ button.bluebutton {
 
 .hidden {
   display:none;
+
 }
 
 .subforums{
   list-style-type: none;
   }
+
+
 
 .location_container{
   text-align: center;
@@ -93,7 +90,7 @@ button.bluebutton {
 
 // Booking stuff on view
 .redbutton {
-width: 100%;
+  width: 100%;
   border-radius: 5px;
   font-size: 20px;
   padding: 14px 80px;
@@ -101,10 +98,9 @@ width: 100%;
   color: #fff;
   background-color: #E85756;
   font-size: 1.5rem;
-
   font-weight: 100;
   border: 1px solid #fff;
-  box-shadow: 2px 2px 5px #AFE9FF;
+  // box-shadow: 2px 2px 5px #AFE9FF;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
@@ -121,15 +117,83 @@ button.redbutton {
   -moz-appearance: none;
 }
 
+#book_now{
+border-radius: 5px;
+font-size: 20px;
+padding: 10px 14px;
+background-color: #E85756;
+background-color: #E85756;
+font-weight: 100;
+border: 1px solid #fff;
+text-align: center;
+transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+
+}
+
+#book_button{
+
+  width: 100%;
+  cursor: pointer;
+  color: #fff;
+  background-color: #E85756;
+  font-size: 1.5rem;
+  font-weight: 100;
+  border: 0px solid #fff;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+}
+
+.booking{
+  margin-top:5px;
+  text-align: left;
+  color:#fff;
+  font-size: 0.9rem;
+}
+
+//Listing Containers
+.listing-container {
+
+  background-color: #f5f5ef;
+  // border:0.5px solid gray;
+  // background-color: white;
+  padding:15px;
+  border-radius: 10px;
+  margin:10px;
+
+.reservation_list{
+  background-color: white;
+  padding:15px;
+  border:1px solid gray;
+  border-radius: 5px;
+  margin-bottom: 10px
+}
+
+}
+.two{
+  background-color: white;
+  border:2px solid gray;
+}
+.three{
+background-color: white;
+
+}
+
+button:focus {outline:0;}
+
+
 //navbar stuff
 // input[type=search]:focus {
 //     width: 92%;
 // }
 
-// input[type=search]{
+// input[type=search]{ 
 //     width: 20%;
 //     -webkit-transition: width 0.4s ease-in-out;
 //     transition: width 0.4s ease-in-out;
 
 // }
+
 

@@ -1,16 +1,8 @@
 <br>
-<!-- <div class="container">
-      <div class="row">
-            <div class="col-md-6">
-            <h2>T<%= @user.name %></h2>
-            </div> 
-      </div> -->
-
-
 <div class="container">
    <div class="row">
       <div class="col-md-8" id="left">
-         <div class="listing-container">
+         <div class="listing-container three">
             <div id="property_type">
                <%= @listing.property_type %>
             </div>
@@ -41,7 +33,7 @@
       </div>
 
       <div class="col-sm-4" id="right">
-         <div class="listing-container">
+         <div class="listing-container two">
             <div style="border-bottom: 0.5px solid black;margin-bottom: 20px;">
                 <span style="font-size:2em;font-weight:bold"><%= @listing.price %> RM </span>per night
                 <br>
@@ -54,9 +46,58 @@
             <form action="#">
                <button class="redbutton"/>Contact Details</button>
             </form>
-            <form action="#">
-               <button class="redbutton"/>Book Now</button>
-            </form>
+
+
+
+              <div id="book_now">
+                  <button id="book_button">Book now</button>      
+                        <div class="booking hidden">
+                              <div>Dates</div>
+                              <%= form_for [@listing, @reservation] do |form|%>
+                              <p><%= form.date_field :check_in%></p>
+                              <p><%= form.date_field :check_out%></p>
+                              <p><%= form.submit%></p>
+                              <% end%>                  
+                        </div>
+              </div>
+                
+
+
+<!-- // this.style.borderBottom = "1px solid #fff";
+ // this.style.borderBottom = "0px solid #fff"; -->
+<!-- FROND END WORK IN PROGRESS -->
+          <script>
+          const button = document.getElementById("book_button");
+            button.addEventListener("click", function(e){
+              if(this.nextElementSibling.classList.contains("hidden")){
+                // this.nextElementSibling.style.marginBottom = "193px";              
+                setTimeout(function_reveal.bind(null, this), 0);
+                }
+              else{
+                function_hide(this);
+                this.parentElement.style.paddingBottom = "10px";                
+                }
+            })
+
+            function function_reveal(x){
+            x.nextElementSibling.classList.remove("hidden");
+            // x.parentElement.style.paddingBottom = "10px";
+            }
+            function function_hide(x){
+            x.nextElementSibling.classList.add("hidden");
+            }
+
+            
+
+         </script>
+
+<!-- form submit
+
+<%# form for @reservation url:create %>
+=> reservaiont controller #create -->
+
+
+
             <br>
          
          </div>

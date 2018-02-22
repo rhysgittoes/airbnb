@@ -19,8 +19,8 @@ class ListingsController < ApplicationController
  	def new
 	 	@listing = Listing.new
 	 	@user = current_user
- 	end 
 
+ 	end 
 
 	def create 
 		@listing = Listing.new(listings_params)
@@ -38,8 +38,9 @@ class ListingsController < ApplicationController
 	def show
 		@user = current_user
 		@listing = Listing.find(params[:id])
+		@reservation = Reservation.new 
+		@reservation.user_id = current_user.id
 		render template: "listings/show"
-
 	end
 
 	def edit
@@ -60,7 +61,13 @@ class ListingsController < ApplicationController
 		redirect_to listings_path
 	end
 
-	private 
+
+
+
+
+
+
+private 
 	def listings_params
 		params.require(:listing).permit(:name, :property_type, :room_number, :bed_number, :guest_number, :price, :description, :country, :state, :city, :zipcode, :address, amenities: [])
 	end 

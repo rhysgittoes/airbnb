@@ -1,3 +1,4 @@
+
 <br>
 <div class="container">
 		<div class="row">
@@ -5,38 +6,101 @@
 				<h2>These are your listings <%= @user.name %></h2>
 				</div>
 		</div>
-
-
 <!-- Listing stuff -->
+
 	<div class="row">
-		<% @listings.each do |l| %>
-			<div class="col-md-8" id="left">
-				<div class="listing-container">
-					<h4><%= l.name %></h4>
-					<br>
-					<p><%= l.description %></p>
-					Rooms available: <%= l.room_number %><br>
-					Beds available: <%= l.bed_number %><br>
-					Sleeps: <%= l.guest_number %><br>
-					<p>Price: <%= l.price %></p>	
-					<div style="text-align:center;"">
-						<%= link_to "Edit This Listing", edit_listing_path(l) ,class: "btn btn-success" %>
-                  <%= link_to "Delete This Listing", listing_path(l) , :method => :delete, class: "btn btn-danger" %>
-               </div>
+		<div class="col-md-8" id="left">
+			<% @listings.each do |l| %>
+				<div class="col-md-12" id="left">
+					<div class="listing-container">
+						<h4><%= l.name %></h4>
+						<br>
+						<p><%= l.description %></p>
+						Rooms available: <%= l.room_number %><br>
+						Beds available: <%= l.bed_number %><br>
+						Sleeps: <%= l.guest_number %><br>
+						<p>Price: <%= l.price %></p>	
+						<div style="text-align:center;"">
+							<%=link_to "Edit This Listing", edit_listing_path(l) ,class: "btn btn-success" %>
+	                  <%=link_to "Delete This Listing", listing_path(l) , :method => :delete, class: "btn btn-danger" %>
+	               </div>
+					</div>
 				</div>
-			</div>
-			
+			<% end %>
+		</div>
 
 <!-- Profile stuff -->
-			<div class="col-sm-4" id="right">
+
+		<div class="col-sm-4" id="right">
+			<div class="col-12">
 				<div class="listing-container">
-					
+					<div style="padding-left:25px;">
+					<h3>Your Profile</h3>
+					<div>Name: <%=@user.name%></div>
+					<div>Email: <%=@user.email%></div>
+					<div>Phone Number: <%if @user.phone.present? %>
+						<%=@user.phone%>
+						<%else %>
+						Unknown
+						<%end%></div>
+					<div>Country: <%if @user.country.present? %>
+						<%=@country.phone%>
+						<%else %>
+						Unknown
+						<%end%></div>
+					</div>
 				</div>
 			</div>
-		<% end %> 
-	</div>
-			
-		
+
+				<div class="listing-container ">
+					<h3>Your Reservations</h3>
+					<% @reservations.each do |r|%>
+							<div class="col-12 reservation_list">
+								<h5><%= r.listing.name %></h5>
+								<div><%=r.id %></div>
+								<div>From: <%=r.check_in %></div>
+								<div>To: <%=r.check_out %></div>		
+								<div>You are checked in for <%=(r.check_out - r.check_in).to_i%> days</div>
+								<br>
+								<h5>Pricing</h5>
+								<div>Per night: <%= r.listing.price %></div>		
+								<div>Total: <%= r.listing.price * (r.check_out - r.check_in).to_i%></div>	
+								<div style="text-align:center;"">
+								<br>
+								<%= link_to "Delete", listing_reservation_path(r.listing, r) , :method => :delete, class: "btn btn-danger" %>
+								<button class="btn btn-success show-info" >Edit</button>
+										<div class="hidden" id=""><br>
+										 <%= form_for [r.listing, r] do |form|%>
+                              <p><%= form.date_field :check_in%></p>
+                              <p><%= form.date_field :check_out%></p>
+                              <p><%= form.submit%></p>
+                              <% end%>                  
+									</div>
+            
+    					
+		               	
+
+
+           <script>
+					const buttons = document.getElementsByClassName("show-info");
+					for (var i = buttons.length - 1; i >= 0; i--) {
+						buttons[i].addEventListener("click", function(e){
+							
+							if(this.nextElementSibling.classList.contains("hidden")){
+
+								this.nextElementSibling.classList.remove("hidden");
+							}
+							else{
+								this.nextElementSibling.classList.add("hidden");
+							}
+						})
+					}
+				 </script>
+	            			</div>
+		            	</div>
+					<%end%>				
+				</div>
+	</div>	
 </div>
 
 <!-- <a href= <%= "http://localhost:3000/users/"+@user.id.to_s%> class="btn btn-info" >Profile</a> -->

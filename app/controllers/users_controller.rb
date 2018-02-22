@@ -9,22 +9,23 @@ class UsersController < Clearance::UsersController
  	@user = User.new(user_params)
  	if @user.save 
  		sign_in @user
- 		redirect_back_or url_after_createw
+ 		redirect_back_or url_after_create
  		cookies[:user_id] = @user.id 
  	else 
- 		render template: "users/view"
+ 		render template: "users/new"
  	end
 
  end 
 
  def show
  	@user = current_user
- 	@listings = Listing.where(users_id: @user.id )
+ 	@listings = Listing.where(users_id: @user.id)
+   @reservations = Reservation.where(user_id: @user.id)
  	render template: "users/show"
  end 
 
 private 
 	def user_params
-		params.require(:user).permit(:email, :password, :name)
+		params.require(:user).permit(:email, :password, :name, :phone, :birthdate, :country)
 	end 
 end

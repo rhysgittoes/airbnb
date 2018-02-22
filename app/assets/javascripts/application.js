@@ -15,6 +15,8 @@
 //= require_tree .
 //= require_self
 
+
+
 // function location_details_reveal(){
 // 	var element = document.getElementsByClassName("location");
 // 	for (i = 0; i < element.length; i++) {
