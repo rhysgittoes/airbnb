@@ -38,7 +38,7 @@
    <!-- Show/hide location script -->
                <div class="location_container">
                   <a href= <%= "http://localhost:3000/listings/"+l.id.to_s%> class="btn btn-success" >View Listing</a>
-                  <button class="btn btn-success show-info" >Show Location</button>
+                  <button class="btn btn-success show_location" >Show Location</button>
 
                      <ul class="subforums hidden" id="location_list"><br>
                         <li><%= l.address %></li>
@@ -51,18 +51,7 @@
             </div>
          </div>
       <% end %> 
-         <script>
-         const buttons = document.getElementsByClassName("show-info");
-         for (var i = buttons.length - 1; i >= 0; i--) {
-            buttons[i].addEventListener("click", function(e){
-               if(this.nextElementSibling.classList.contains("hidden")){
-                  this.nextElementSibling.classList.remove("hidden");
-               }else{
-                  this.nextElementSibling.classList.add("hidden");
-               }
-            })
-         }
-       </script>
+
 
       <!-- <div class="col">
       </div>

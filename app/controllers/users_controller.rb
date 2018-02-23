@@ -19,8 +19,14 @@ class UsersController < Clearance::UsersController
 
  def show
  	@user = current_user
- 	@listings = Listing.where(users_id: @user.id)
+   @listings = current_user.listings
+ 	# @listings = Listing.where(user_id: @user.id) 
    @reservations = Reservation.where(user_id: @user.id)
+   @reservationlisting = Reservation.where(listing_id: @listings[0].id)
+
+
+   current_user.listings
+
  	render template: "users/show"
  end 
 

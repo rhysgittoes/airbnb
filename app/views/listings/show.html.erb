@@ -50,7 +50,7 @@
 
 
               <div id="book_now">
-                  <button id="book_button">Book now</button>      
+                  <button class="book_menu" id="book_button">Book now</button>      
                         <div class="booking hidden">
                               <div>Dates</div>
                               <%= form_for [@listing, @reservation] do |form|%>
@@ -63,33 +63,7 @@
                 
 
 
-<!-- // this.style.borderBottom = "1px solid #fff";
- // this.style.borderBottom = "0px solid #fff"; -->
-<!-- FROND END WORK IN PROGRESS -->
-          <script>
-          const button = document.getElementById("book_button");
-            button.addEventListener("click", function(e){
-              if(this.nextElementSibling.classList.contains("hidden")){
-                // this.nextElementSibling.style.marginBottom = "193px";              
-                setTimeout(function_reveal.bind(null, this), 0);
-                }
-              else{
-                function_hide(this);
-                this.parentElement.style.paddingBottom = "10px";                
-                }
-            })
 
-            function function_reveal(x){
-            x.nextElementSibling.classList.remove("hidden");
-            // x.parentElement.style.paddingBottom = "10px";
-            }
-            function function_hide(x){
-            x.nextElementSibling.classList.add("hidden");
-            }
-
-            
-
-         </script>
 
 <!-- form submit
 
