@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-
+require "mini_magick"
 	def index
 		@user = current_user
 		@listing = Listing.all
@@ -60,16 +60,10 @@ class ListingsController < ApplicationController
 		@listing.destroy 
 		redirect_to listings_path
 	end
-
-
-
-
-
-
-
+	
 private 
 	def listings_params
-		params.require(:listing).permit(:name, :property_type, :room_number, :bed_number, :guest_number, :price, :description, :country, :state, :city, :zipcode, :address, amenities: [])
+		params.require(:listing).permit(:name, :property_type, :room_number, :bed_number, :guest_number, :price, :description, :country, :state, :city, :zipcode, :address, {amenities: []},{images: []})
 	end 
 end
 

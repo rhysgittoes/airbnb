@@ -31,6 +31,7 @@
 
   </div>
 
+
   
 
   <ul class="navbar-nav navbar-right">
@@ -44,6 +45,7 @@
 			     
      </li>   
   </ul> 
+
 
 
   <ul class="navbar-nav navbar-right">
@@ -80,6 +82,27 @@
            <% end -%>   
          
      </li>   
+  </ul>
+
+   <ul class="navbar-nav navbar-right">
+     <li class="nav-sessioncontrol">  
+       <% if signed_in? -%>
+          <% if @user.avatar.url.present?%>
+          <%= image_tag @user.avatar.small.url, :class => "avatar" %>
+          <%else%> 
+          <%end%>
+        <%else%>
+        <%end%>
+       </li>   
+  </ul>
+
+   <ul class="navbar-nav navbar-right">
+     <li class="nav-sessioncontrol">  
+       <% if signed_in? -%>
+        <%= @user.name%>
+        <%else%>
+        <%end%>
+       </li>   
   </ul>
 
     

@@ -5,6 +5,9 @@
              <br>
                 <div>Listing Name</div>
                    <div><%= f.text_field :name %></div>
+                   <div>Images to upload </div>
+                   <div><%= f.file_field :images, multiple: true %></div>
+
                       
                    <div>Property Type?</div>
                          <div><%= f.select :property_type, options_for_select(["House","Apartment","Chalet","Villa","Condominium","Treehouse","Yurt","Tent","Entire Floor","Hut","Other"]) %></div> 

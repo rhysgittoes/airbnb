@@ -41,14 +41,23 @@
 	<div class="row">
 					<% @listing.each do |l| %>
 					<div class="col-md-4">
-						<div class="listing-container">
-							<h4><%= l.name %></h4>
+						<div class="listing-container" style="margin:0px; margin-top: 10px;margin-bottom:10px;">	
+							
+
+							<%if l.images.present? %>
+								<div style="text-align: center;">
+								  <img src="<%=l.images[0].medium.url%>">
+								</div>
+								<%else%>
+								No Image
+							<%end%>
 							<br>
+							<h4><%= l.name %></h4>
 							<div id="property_type">
                			<%= l.property_type %>
            				</div>
 				<!--<p>ID of this is: <%= l.id %></p>-->
-							<p><%= l.description %></p>
+							<!-- <p><%= l.description %></p> -->
 							
 							Rooms available: <%= l.room_number %><br>
 							Beds available: <%= l.bed_number %><br>

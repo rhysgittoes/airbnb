@@ -3,8 +3,9 @@
 			Name:
 		  <%= form.text_field :name %>
 		</div>
-
-
+                        <div>
+                         <%= form.file_field :avatar %>
+                        </div>
 		<div class="text-field" style="margin-bottom:5px;">
 		  Email:
 		  <%= form.text_field :email, type: 'email' %>
