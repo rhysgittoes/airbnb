@@ -5,11 +5,14 @@ class ReservationMailer < ApplicationMailer
   #
   #   en.reservation_mailer.Mailer.subject
   #
-  def reservation_confirm(user)
+  def reservation_to_booker(user)
    @user = user 
    @url  = 'http://example.com/login'
    mail(to: @user.email, subject: 'Reservation Confirmed!')
   end
+
+
+  
 end
 
 

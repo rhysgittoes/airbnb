@@ -52,7 +52,7 @@
      <li class="nav-sessioncontrol">  
 
            <% if signed_in? -%>
-      <a href= <%= "http://localhost:3000/users/"+@user.id.to_s%> class="btn btn-info" >Profile</a>
+      <a href= <%= "http://localhost:3000/users/"+@user.id.to_s%> class="btn btn-info" ><%=@user.name%></a>
            <% else -%>
            <% end -%>   
          
@@ -96,14 +96,14 @@
        </li>   
   </ul>
 
-   <ul class="navbar-nav navbar-right">
+<!--    <ul class="navbar-nav navbar-right">
      <li class="nav-sessioncontrol">  
        <% if signed_in? -%>
         <%= @user.name%>
         <%else%>
         <%end%>
        </li>   
-  </ul>
+  </ul> -->
 
     
   
