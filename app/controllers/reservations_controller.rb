@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
       # @listing.propert_type = params[:property_type]
       # @listing.users_id = current_user.id 
       if @reservation.save  
+           ReservationMailer.reservation_confirm(@user).deliver_later
          redirect_to listings_path
       else
 

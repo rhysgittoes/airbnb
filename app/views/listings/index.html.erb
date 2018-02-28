@@ -1,5 +1,8 @@
 
-<img src="/images/splash.png" style="z-index:0;position: relative; width: 100%;">
+<!-- <img src="/images/splash.png" style="z-index:0;position: relative; width: 100%;"> -->
+<div class="image_container">
+<img src="/images/splash.png" id="image">
+</div>
 <div style="z-index:1; position: absolute; top:22%; width: 72%; margin-left: 14%;">
 	<div class="row">
 		<div class="col-1"></div>
@@ -96,6 +99,10 @@
 					<div class="col-3" >
 						<div class="listing-container" style="margin:0px; margin-top: 10px;margin-bottom:10px;background-color:white; padding-right:0px;padding-left:0px;">	
 							
+								<a href= <%= "http://localhost:3000/listings/"+l.id.to_s%>
+									style="width:100%;height:100%; position: absolute;"
+									>
+								</a>
 
 							<%if l.images.present? %>
 								<!-- <div style="text-align: center;"> -->
@@ -113,10 +120,6 @@
 							<div>RM<%= l.price %> per night</div>
 							<div><%=l.user.name%></div>
 					
-
-							<div style="text-align: center;">
-								<a href= <%= "http://localhost:3000/listings/"+l.id.to_s%> class="btn btn-success" >View Listing</a>
-
 								<!-- Show/hide location script - SCRAPPED --><!-- <button class="btn btn-success show_location" >Show Location</button>
 									<ul class="subforums hidden" id="location_list"><br>
 										<li><%= l.address %></li>
@@ -125,7 +128,7 @@
 										<li><%= l.state %></li>
 										<li><%= l.country %></li>
 									</ul> -->
-							</div>
+							
 						</div>
 					</div>
 					<% end %> 
