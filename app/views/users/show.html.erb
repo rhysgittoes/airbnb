@@ -3,7 +3,11 @@
 <div class="container">
 		<div class="row">
 				<div class="col-md-12" style="">
-				<h2>These are your listings <%= @user.name %></h2>
+					<%if @listings.present?%>
+					<h2>These are your listings <%= @user.name %></h2>
+					<%else%>
+					<h2>You have no listings <%= @user.name %></h2>
+					<%end%>
 
 
 			
@@ -17,11 +21,10 @@
 			<% @listings.each do |l| %>
 				<div class="col-md-12" id="">
 					<div class="listing-container three" style="border-radius:0px;border-bottom: 1px solid gray">
-						 <div id="property_type">
-             	 	 <%= l.property_type %>
-           			 </div>
-						<h4><%= l.name %></h4>
-						<br>
+						<div id="property_type">
+             	 		<%= l.property_type %>
+           			</div>
+						<h4><%= l.name %></h4><br>				
 						<p><%= l.description %></p>
 						Rooms available: <%= l.room_number %><br>
 						Beds available: <%= l.bed_number %><br>
@@ -81,26 +84,40 @@
 								<div>You are checked in for <%=(r.check_out - r.check_in).to_i%> days</div>
 								<br>
 								<h5>Pricing</h5>
-								<div>Per night: <%= r.listing.price %></div>		
-								<div>Total: <%= r.listing.price * (r.check_out - r.check_in).to_i%></div>	
+								<div>Per night: <%= r.listing.price %> RM</div>
+
+
+								<div>Total: <%= r.listing.price * (r.check_out - r.check_in).to_i%> RM</div>	
+
+								<div>Status:
+									<%if r.payed ==true%>
+									Paid
+									<%else%>
+									Not Paid
+									<%end%>
+								</div>
+
+
 								<div style="text-align:center;"">
-								<br>
-								<%= link_to "Delete", listing_reservation_path(r.listing, r) , :method => :delete, class: "btn btn-danger" %>
-
-								<button class="btn btn-success edit_reservation">Edit</button>
-										<div class="hidden"><br>
-										 <%= form_for [r.listing, r] do |form|%>
-                              <p><%= form.date_field :check_in%></p>
-                              <p><%= form.date_field :check_out%></p>
-                              <p><%= form.submit%></p>
-                              <% end%>                  
-									</div>
-           				         	
+										<br>
+										<%= link_to "Delete", listing_reservation_path(r.listing, r) , :method => :delete, class: "btn btn-danger" %>
+										
 
 
-	            			
+
+										<%= link_to "Payment", braintree_new_path(r.id), class: "btn btn-info", :style => "margin-right:0px;"%>
+								
 
 
+
+										<button class="btn btn-success edit_reservation">Edit</button>
+												<div class="hidden"><br>
+												 <%= form_for [r.listing, r] do |form|%>
+		                              <p><%= form.date_field :check_in%></p>
+		                              <p><%= form.date_field :check_out%></p>
+		                              <p><%= form.submit%></p>
+		                              <% end%>                  
+												</div>
 	            			</div>
 
 		            	</div>

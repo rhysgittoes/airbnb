@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # get 'braintree/new'
+  # post 'braintree/checkout'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -21,6 +24,8 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
 
+ get "/reservations/:reservation_id/braintree/new" => "braintree#new", as:"braintree_new"
+  post "/reservations/:reservation_id/braintree/checkout" => "braintree#checkout", as:"braintree_checkout"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

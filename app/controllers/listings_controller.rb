@@ -2,7 +2,9 @@ class ListingsController < ApplicationController
 require "mini_magick"
 	def index
 		@user = current_user
+		@users = User.all
 		@listing = Listing.all
+		# @random1 = @listing[rand(0..(@listing.length-1))]
 		render template: "listings/index"
 	end
 

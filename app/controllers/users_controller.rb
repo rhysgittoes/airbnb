@@ -20,10 +20,12 @@ require "mini_magick"
  end 
 
  def show
+
  	@user = current_user
    @listings = current_user.listings
  	# @listings = Listing.where(user_id: @user.id) 
    @reservations = Reservation.where(user_id: @user.id)
+   # @total_days = (@reservations.check_out - @reservations.check_in)
    # @reservationlisting = Reservation.where(listing_id: @listings[0].id)
    current_user.listings
  	render template: "users/show"

@@ -1,16 +1,64 @@
-<br>
-<div class="container">
+
+<img src="/images/splash.png" style="z-index:0;position: relative; width: 100%;">
+<div style="z-index:1; position: absolute; top:22%; width: 72%; margin-left: 14%;">
 	<div class="row">
-		<div class="col">
-			<h2 class="signed_in_title">
-			New Listings for you
-			<%= @user.name %>				   
-			</h2>
-
+		<div class="col-1"></div>
+		<div class="col-5 welcome_text">
+			<br>
+		Welcome to AirBnb
 		</div>
+		<div class="col-5">
+				<tr>
+					<td> 
+					<form action="/listings/new" >
+					<button class="redbutton"/ style="margin-bottom:5px; border-width: 0px;"> Create a Listing
+					</form>
+				<tr>
+					<td>	
+					<form action=<%= "http://localhost:3000/users/"+@user.id.to_s%> >
+					 <button class="redbutton"/ style="margin-bottom:5px;  border-width: 0px;">  View your Listings   
+					</form>
+				<tr>
+					<td> 
+					<form action=<%= "http://localhost:3000/users/"+@user.id.to_s%>>
+					<button class="redbutton"/ style="border-width: 0px;"> View Reservations
+					</form>
+			</form>
+		</div>
+		<div class="col-1"></div>
 
 
-		<div class="col"></div>
+	</div>
+
+<!-- <table class="listings-menu">
+				<tr>
+					<td> 
+					<form action="/listings/new">
+					<button class="redbutton"/> Create a Listing
+					</form>
+				<tr>
+					<td>	
+					<form action=<%= "http://localhost:3000/users/"+@user.id.to_s%>>
+					 <button class="redbutton"/>  View your Listings   
+					</form>
+				<tr>
+					<td> 
+					<form action=<%= "http://localhost:3000/users/"+@user.id.to_s%>>
+					<button class="redbutton"/> View Reservations
+					</form>
+
+			</table> -->
+
+<!-- Random image from listings - not implemented yet -->
+<%#= image_tag @listing[rand(0..(@listing.length-1))].images[rand(0..2)].medium.url %>
+<%#= image_tag @listing[rand(0..(@listing.length-1))].images[rand(0..2)].medium.url %>
+
+
+
+
+
+<!-- Old stuff -->
+		<!-- <div class="col"></div>
 		<div class="col">
 			<table class="listings-menu">
 				<tr>
@@ -30,67 +78,59 @@
 					</form>
 
 			</table>
-		</div>
-	</div>
+		</div> -->
+
 </div>
 <br>
-
-
+<br>
+<div class="col-12" style="text-align: center;">
+			<h2 class="signed_in_title">
+			New Listings for you
+			<%= @user.name %>				   
+			</h2>
+	</div>
 <!-- List of places -->
-<div class="container">
+<div style="margin-right: 5%;margin-left: 5%;">
 	<div class="row">
 					<% @listing.each do |l| %>
-					<div class="col-md-4">
-						<div class="listing-container" style="margin:0px; margin-top: 10px;margin-bottom:10px;">	
+					<div class="col-3" >
+						<div class="listing-container" style="margin:0px; margin-top: 10px;margin-bottom:10px;background-color:white; padding-right:0px;padding-left:0px;">	
 							
 
 							<%if l.images.present? %>
-								<div style="text-align: center;">
-								  <img src="<%=l.images[0].medium.url%>">
-								</div>
+								<!-- <div style="text-align: center;"> -->
+								  <img style="width:100%; border-radius:3px;" src="<%=l.images[0].medium.url%>">
+								<!-- </div> -->
 								<%else%>
 								No Image
 							<%end%>
 							<br>
-							<h4><%= l.name %></h4>
 							<div id="property_type">
-               			<%= l.property_type %>
+               			<%= l.property_type %> -
+               			<%= l.city %>
            				</div>
-				<!--<p>ID of this is: <%= l.id %></p>-->
-							<!-- <p><%= l.description %></p> -->
-							
-							Rooms available: <%= l.room_number %><br>
-							Beds available: <%= l.bed_number %><br>
-							Sleeps: <%= l.guest_number %><br>
-							<p>Price: <%= l.price %></p>
-							<!-- <p>Amenities: <%= l.amenities %></p> -->
-			<!-- Show/hide location script -->
-							<div class="location_container">
+							<h4 style="margin-bottom:0px;"><%= l.name %></h4>
+							<div>RM<%= l.price %> per night</div>
+							<div><%=l.user.name%></div>
+					
+
+							<div style="text-align: center;">
 								<a href= <%= "http://localhost:3000/listings/"+l.id.to_s%> class="btn btn-success" >View Listing</a>
-								<button class="btn btn-success show_location" >Show Location</button>
+
+								<!-- Show/hide location script - SCRAPPED --><!-- <button class="btn btn-success show_location" >Show Location</button>
 									<ul class="subforums hidden" id="location_list"><br>
 										<li><%= l.address %></li>
 										<li><%= l.zipcode %></li>
 										<li><%= l.city %></li>
 										<li><%= l.state %></li>
 										<li><%= l.country %></li>
-									</ul>
+									</ul> -->
 							</div>
 						</div>
 					</div>
 					<% end %> 
-				
-
-
-
-				<!-- <div class="col">
-				</div>
-				
-				<div class="col">
-				</div> -->
-
 	</div>
 </div>
-<!-- :country, :state, :city, :zipcode, :address -->
+
 
 <!-- overflow-x: visible; overflow-y: visible; -->
