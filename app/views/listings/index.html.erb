@@ -13,20 +13,26 @@
 		<div class="col-5">
 				<tr>
 					<td> 
-					<form action="/listings/new" >
+				<!-- 	<form action="/listings/new" >
 					<button class="redbutton"/ style="margin-bottom:5px; border-width: 0px;"> Create a Listing
-					</form>
+					</form> -->
+       		 <%= button_to "Create a Listing", new_listing_path,:method => 'get', class: "redbutton mainbuttons" %>
+       		
 				<tr>
 					<td>	
-					<form action=<%= "http://localhost:3000/users/"+@user.id.to_s%> >
+					<!-- <form action=<%= "http://localhost:3000/users/"+@user.id.to_s%> >
 					 <button class="redbutton"/ style="margin-bottom:5px;  border-width: 0px;">  View your Listings   
 					</form>
+ -->
+			  <%= button_to "View your Listings", user_path(current_user), :method => 'get', class: "redbutton mainbuttons" %>
+
+
 				<tr>
 					<td> 
-					<form action=<%= "http://localhost:3000/users/"+@user.id.to_s%>>
+					<!-- <form action=<%= "http://localhost:3000/users/"+@user.id.to_s%>>
 					<button class="redbutton"/ style="border-width: 0px;"> View Reservations
-					</form>
-			</form>
+					</form> -->
+					<%= button_to "View Reservations", user_path(current_user), :method => 'get', class: "redbutton mainbuttons" %>
 		</div>
 		<div class="col-1"></div>
 
@@ -98,10 +104,10 @@
 					<% @listing.each do |l| %>
 					<div class="col-3" >
 						<div class="listing-container" style="margin:0px; margin-top: 10px;margin-bottom:10px;background-color:white; padding-right:0px;padding-left:0px;">	
-							
-								<a href= <%= "http://localhost:3000/listings/"+l.id.to_s%>
+							<!-- 	<a href= <%= "http://localhost:3000/listings/"+l.id.to_s%>
 									style="width:100%;height:100%; position: absolute;"
-									>
+									> -->
+						<%= button_to "", listing_path(l.id), :method => 'get', class: "item_button" %>
 								</a>
 
 							<%if l.images.present? %>

@@ -14,7 +14,9 @@
 <!-- Navbar -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="http://localhost:3000">Airbnb</a>
+          <%= link_to "Airbnb", root_path, class: "navbar-brand" %>
+
+<!--   <a class="navbar-brand" href="http://localhost:3000">Airbnb</a> -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
@@ -36,37 +38,45 @@
 
   <ul class="navbar-nav navbar-right">
      <li class="nav-sessioncontrol">  
-			   
-			     <% if signed_in? -%>
-            <a data-method="delete" href="http://localhost:3000/sign_out" class="btn btn-info">Sign out</a>
-			     <% else -%>
-                 <a href="http://localhost:3000/sign_in" class="btn btn-info">Sign in</a>
-			     <% end -%> 	
+        <% if signed_in? -%>
+    <!--   <a data-method="delete" href="http://localhost:3000/sign_out" class="btn btn-info">Sign out</a> -->
+        <%= link_to "Sign out", sign_out_path,:method => 'delete', class: "btn btn-info" %>
+        <% else %>
+        <%= link_to "Sign in", sign_in_path, class: "btn btn-info"%>
+          <!-- <a href="http://localhost:3000/sign_in" class="btn btn-info">Sign in</a> -->
 			     
+           <% end -%> 				     
      </li>   
   </ul> 
 
 
-
+<!-- Link to profile -->
   <ul class="navbar-nav navbar-right">
      <li class="nav-sessioncontrol">  
 
-           <% if signed_in? -%>
-      <a href= <%= "http://localhost:3000/users/"+@user.id.to_s%> class="btn btn-info" ><%=@user.name%></a>
+          <% if signed_in? -%>
+          <%= link_to @user.name, user_path(current_user), class: "btn btn-info" %>
+
+<!--  listing_reservations_path(@listing, @resrvations)
+
+ /listings/23/resrvations/1 -->
+<!-- <a href= <%#= "http://localhost:3000/users/"+@user.id.to_s%> class="btn btn-info" ><%#=@user.name%></a>
+ -->
            <% else -%>
            <% end -%>   
          
      </li>   
   </ul>
 
-
+<!-- Link to Sign up -->
   <ul class="navbar-nav navbar-right">
      <li class="nav-sessioncontrol">  
 
            <% if signed_in? -%>
            <!-- Display nothing -->
            <% else -%>
-           <a href="http://localhost:3000/sign_up" class="btn btn-info">Sign up</a>
+             <%= link_to "Sign out", sign_out_path, class: "btn btn-info"%>
+           <!-- <a href="http://localhost:3000/sign_up" class="btn btn-info">Sign up</a> -->
            <% end -%>   
          
      </li>   
@@ -78,6 +88,8 @@
            <% if signed_in? -%>
            <!-- Display nothing -->
            <% else -%>
+
+           <%#= link_to "Facebook Sign in", auth_path, class: "btn btn-info"%>
            <a href="http://localhost:3000/auth/facebook" class="btn btn-info">Facebook Sign in</a>
            <% end -%>   
          

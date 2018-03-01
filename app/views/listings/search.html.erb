@@ -15,51 +15,56 @@
       <div class="col-12">
          <h2 class="results_title">  Listings near the city of <%=params[:city]%></h2>
       </div>
-
-<!-- List of places in city -->
-<div class="container">
-   <div class="row">
-      <% @listings.each do |l| %>
-         <div class="col-md-4">
-            <div class="listing-container">
-               <h4><%= l.name %></h4>
-               <br>
-               <div id="property_type">
-                  <%= l.property_type %>
-               </div>
-         <!--<p>ID of this is: <%= l.id %></p>-->
-               <p><%= l.description %></p>
-               
-               Rooms available: <%= l.room_number %><br>
-               Beds available: <%= l.bed_number %><br>
-               Sleeps: <%= l.guest_number %><br>
-               <p>Price: <%= l.price %></p>
-               <!-- <p>Amenities: <%= l.amenities %></p> -->
-   <!-- Show/hide location script -->
-               <div class="location_container">
-                  <a href= <%= "http://localhost:3000/listings/"+l.id.to_s%> class="btn btn-success" >View Listing</a>
-                  <button class="btn btn-success show_location" >Show Location</button>
-
-                     <ul class="subforums hidden" id="location_list"><br>
-                        <li><%= l.address %></li>
-                        <li><%= l.zipcode %></li>
-                        <li><%= l.city %></li>
-                        <li><%= l.state %></li>
-                        <li><%= l.country %></li>
-                     </ul>
-               </div>
-            </div>
-         </div>
-      <% end %> 
-
-
-      <!-- <div class="col">
-      </div>
-      
-      <div class="col">
-      </div> -->
    </div>
 </div>
+
+
+<!-- List of places in city -->
+<div style="margin-right: 5%;margin-left: 5%;">
+   <div class="row">
+               <% @listings.each do |l| %>
+               <div class="col-3" >
+                  <div class="listing-container" style="margin:0px; margin-top: 10px;margin-bottom:10px;background-color:white; padding-right:0px;padding-left:0px;">   
+                     <!--  <a href= <%= "http://localhost:3000/listings/"+l.id.to_s%>
+                           style="width:100%;height:100%; position: absolute;"
+                           > -->
+                  <%= button_to "", listing_path(l.id), :method => 'get', class: "item_button" %>
+                        </a>
+
+                     <%if l.images.present? %>
+                        <!-- <div style="text-align: center;"> -->
+                          <img style="width:100%; border-radius:3px;" src="<%=l.images[0].medium.url%>">
+                        <!-- </div> -->
+                        <%else%>
+                        No Image
+                     <%end%>
+                     <br>
+                     <div id="property_type">
+                        <%= l.property_type %> -
+                        <%= l.city %>
+                     </div>
+                     <h4 style="margin-bottom:0px;"><%= l.name %></h4>
+                     <div>RM<%= l.price %> per night</div>
+                     <div><%=l.user.name%></div>
+               
+                        <!-- Show/hide location script - SCRAPPED --><!-- <button class="btn btn-success show_location" >Show Location</button>
+                           <ul class="subforums hidden" id="location_list"><br>
+                              <li><%= l.address %></li>
+                              <li><%= l.zipcode %></li>
+                              <li><%= l.city %></li>
+                              <li><%= l.state %></li>
+                              <li><%= l.country %></li>
+                           </ul> -->
+                     
+                  </div>
+               </div>
+               <% end %> 
+   </div>
+</div>
+
+
+
+ 
 
 <% else %>
 

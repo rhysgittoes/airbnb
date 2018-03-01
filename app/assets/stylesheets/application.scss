@@ -88,33 +88,7 @@ button.bluebutton {
 }
 
 // Booking stuff on view
-.redbutton {
-  width: 100%;
-  border-radius: 5px;
-  font-size: 20px;
-  padding: 14px 80px;
-  cursor: pointer;
-  color: #fff;
-  background-color: #E85756;
-  font-size: 1.5rem;
-  font-weight: 100;
-  border: 1px solid #fff;
-  // box-shadow: 2px 2px 5px #AFE9FF;
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-}
 
-.redbutton:hover {
-  color: #800A00;
-  border: 1px solid #800A00;
-  // box-shadow: 2px 2px 20px #AFE9FF;
-}
-
-button.redbutton {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
 
 #book_now{
 border-radius: 5px;
