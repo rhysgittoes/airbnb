@@ -24,16 +24,13 @@ margin-top: -620px;
  
 }
  
-
 @-webkit-keyframes slowpan {
  0% {
     transform:translateX(-100px) scale(1.25);
   }
-  
   100% {
     transform:translateX(100px) scale(1.25);
   }
-  
 }
 
 
@@ -82,3 +79,5 @@ button.redbutton {
   outline:none;
 
 }
+
+

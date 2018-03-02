@@ -7,9 +7,8 @@
 <p>No results found</p>
 <%end%> -->
 
-
 <br>
-<% if @listings.present? %>
+<% if @listings_filter.present? %>
 <div class="container">
    <div class="row">
       <div class="col-12">
@@ -19,10 +18,12 @@
 </div>
 
 
+
+
 <!-- List of places in city -->
 <div style="margin-right: 5%;margin-left: 5%;">
    <div class="row">
-               <% @listings.each do |l| %>
+               <% @listings_filter.each do |l| %>
                <div class="col-3" >
                   <div class="listing-container" style="margin:0px; margin-top: 10px;margin-bottom:10px;background-color:white; padding-right:0px;padding-left:0px;">   
                      <!--  <a href= <%= "http://localhost:3000/listings/"+l.id.to_s%>
@@ -32,9 +33,8 @@
                         </a>
 
                      <%if l.images.present? %>
-                        <!-- <div style="text-align: center;"> -->
                           <img style="width:100%; border-radius:3px;" src="<%=l.images[0].medium.url%>">
-                        <!-- </div> -->
+                       
                         <%else%>
                         No Image
                      <%end%>
@@ -47,14 +47,6 @@
                      <div>RM<%= l.price %> per night</div>
                      <div><%=l.user.name%></div>
                
-                        <!-- Show/hide location script - SCRAPPED --><!-- <button class="btn btn-success show_location" >Show Location</button>
-                           <ul class="subforums hidden" id="location_list"><br>
-                              <li><%= l.address %></li>
-                              <li><%= l.zipcode %></li>
-                              <li><%= l.city %></li>
-                              <li><%= l.state %></li>
-                              <li><%= l.country %></li>
-                           </ul> -->
                      
                   </div>
                </div>

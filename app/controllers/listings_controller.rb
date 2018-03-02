@@ -10,7 +10,15 @@ require "mini_magick"
 
 	def search
 		@user = current_user
-		@listings = Listing.where(city: params[:city])
+		# @listings_city = Listing.where(city: params[:city])
+		@listings_filter = Listing.where(
+
+			"city ILIKE ? AND price >= ? AND price <= ?",
+			"%#{params[:city]}", params[:price_min],params[:price_max]
+			)
+
+#  price >= ?",
+		# @listings_price = Listing.where("content LIKE :price", price: params[:price])
 		# ^^ Checks listing where the column city is the same as the params city pulled from the search bar
 
 		#params[:query]
