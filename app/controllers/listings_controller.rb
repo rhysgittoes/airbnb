@@ -13,8 +13,8 @@ require "mini_magick"
 		# @listings_city = Listing.where(city: params[:city])
 		@listings_filter = Listing.where(
 
-			"city ILIKE ? AND price >= ? AND price <= ?",
-			"%#{params[:city]}", params[:price_min],params[:price_max]
+			"city ILIKE ? AND price >= ? AND price <= ? AND room_number = ?",
+			"%#{params[:city]}", params[:price_min],params[:price_max],params[:room_number]
 			)
 
 #  price >= ?",
